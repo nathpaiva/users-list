@@ -12,20 +12,6 @@ const reset = css`
     --color-dark: black;
   }
 
-  /* @TODO */
-  @media (min-width: 1920px) {
-    :root {
-      font-size: 1.125rem;
-    }
-  }
-
-  /* @TODO */
-  @media (min-width: 1024px) {
-    :root {
-      font-size: 1rem;
-    }
-  }
-
   /*
   Document
   ========

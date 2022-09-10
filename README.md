@@ -31,7 +31,6 @@
 
 # TODO
 
-- [ ] rever os todos
 - [ ] colocar animação no card
 - [ ] rever o card de usuário para separar o component ou não
 - [ ] rever responsivo
