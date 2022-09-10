@@ -31,7 +31,7 @@ export function Main() {
             <UserList />
           </TabPanel>
 
-          <TabPanel layout="grid:2" index={1}>
+          <TabPanel layout="grid:2" index={1} tabindex="0">
             <FullProfile />
           </TabPanel>
         </UserContext>

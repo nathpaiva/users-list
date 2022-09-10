@@ -1,5 +1,7 @@
 import React, { createContext, FC, useContext, useMemo, useState } from 'react'
 
+import { noop } from '../../helpers'
+
 type TCUserContext = {
   currentUser: TUserData | null
   userList: TUserData[]
@@ -9,7 +11,7 @@ type TCUserContext = {
 const CUserContext = createContext<TCUserContext>({
   currentUser: null,
   userList: [],
-  setCurrentUser: () => {},
+  setCurrentUser: noop,
 })
 
 type TUserContext = {

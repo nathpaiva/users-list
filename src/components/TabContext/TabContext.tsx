@@ -1,5 +1,7 @@
 import React, { createContext, FC, useContext, useMemo, useState } from 'react'
 
+import { noop } from '../../helpers'
+
 type TCTabContext = {
   currentTab: number
   setCurrentTab: React.Dispatch<React.SetStateAction<number>>
@@ -7,7 +9,7 @@ type TCTabContext = {
 
 const CTabContext = createContext<TCTabContext>({
   currentTab: 0,
-  setCurrentTab: () => {},
+  setCurrentTab: noop,
 })
 
 type TTabContext = {

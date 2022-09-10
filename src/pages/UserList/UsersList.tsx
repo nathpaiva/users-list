@@ -1,6 +1,10 @@
 import React from 'react'
 
-import { UserCard, useTabContext, useUserContext } from '../../components'
+import {
+  CardUserContainer,
+  useTabContext,
+  useUserContext,
+} from '../../components'
 
 export const UserList = () => {
   const context = useUserContext()
@@ -11,21 +15,30 @@ export const UserList = () => {
 
   return (
     <>
-      {userList.map((item) => {
+      {userList.map((userData) => {
         const isCurrentUser =
-          JSON.stringify(currentUser) === JSON.stringify(item)
+          JSON.stringify(currentUser) === JSON.stringify(userData)
+
         return (
-          <UserCard
+          <CardUserContainer
+            key={userData.login.uuid}
+            userData={userData}
+            cardStyle="short"
+            userSelected={isCurrentUser}
+            as="button"
             type="button"
             onClick={() => {
-              setCurrentUser(item)
+              setCurrentUser(userData)
               setCurrentTab(1)
             }}
-            key={item.login.uuid}
-            as="button"
-            userData={item}
-            userSelected={isCurrentUser}
-          />
+          >
+            <CardUserContainer.Image />
+            <CardUserContainer.Description>
+              <p>
+                {userData.name.first} ${userData.name.last}
+              </p>
+            </CardUserContainer.Description>
+          </CardUserContainer>
         )
       })}
     </>

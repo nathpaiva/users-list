@@ -10,6 +10,7 @@ type TTabPanel = {
   index: number
   children: React.ReactNode
   layout?: 'grid:2' | 'grid:4'
+  tabindex?: string
 }
 
 const fadeIn = keyframes`
