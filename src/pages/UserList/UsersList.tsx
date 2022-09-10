@@ -15,7 +15,7 @@ export const UserList = () => {
 
   return (
     <>
-      {userList.map((userData) => {
+      {userList.map((userData, index) => {
         const isCurrentUser =
           JSON.stringify(currentUser) === JSON.stringify(userData)
 
@@ -31,6 +31,7 @@ export const UserList = () => {
               setCurrentUser(userData)
               setCurrentTab(1)
             }}
+            index={index}
           >
             <CardUserContainer.Image />
             <CardUserContainer.Description>

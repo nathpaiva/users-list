@@ -24,20 +24,20 @@ export const FullProfile: React.FC = () => {
 
       <CardUserContainer.Detail tabIndex="0">
         <p>
-          <strong>Gender:</strong> {currentUser.gender}
+          <strong>Gender: </strong> {currentUser.gender}
         </p>
         <p>
-          <strong>Email:</strong> {currentUser.email}
+          <strong>Email: </strong> {currentUser.email}
         </p>
         <p>
-          <strong>Username:</strong> {currentUser.login.username}
+          <strong>Username: </strong> {currentUser.login.username}
         </p>
         <p>
-          <strong>DOB:</strong>{' '}
+          <strong>DOB: </strong>{' '}
           {new Date(currentUser.dob.date).toLocaleDateString()}
         </p>
         <p>
-          <strong>Phone:</strong> {currentUser.phone}
+          <strong>Phone: </strong> {currentUser.phone}
         </p>
       </CardUserContainer.Detail>
     </CardUserContainer>

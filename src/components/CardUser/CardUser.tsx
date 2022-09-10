@@ -1,6 +1,6 @@
 import React, { useContext, Children } from 'react'
 
-import { css } from '@emotion/react'
+import { css, keyframes } from '@emotion/react'
 import styled from '@emotion/styled'
 
 import { MEDIA } from '../../constants'
@@ -8,13 +8,29 @@ import { CardUserContext } from './components/CardUserContext'
 
 type TCardPicture = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   userSelected: boolean
+  index: number
 }
 
+const cardEntrance = keyframes`
+  from {
+    opacity: 0;
+    transform: scale(0.3);
+    filter: blur(3px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0);
+  }
+`
+
 export const CardUser = styled.div<TCardPicture>`
-  ${({ userSelected }) => {
+  ${({ userSelected, index }) => {
     const { cardStyle } = useContext(CardUserContext)
 
     return css`
+      --stagger-delay: 90ms;
+      --index: ${index + 1};
       --bg-color-style: ${cardStyle === 'short'
         ? 'var(--bg-c-light)'
         : 'var(--bg-c-dark)'};
@@ -26,6 +42,10 @@ export const CardUser = styled.div<TCardPicture>`
 
       --bg-color: ${userSelected ? 'red' : 'var(--bg-color-style)'};
       --bg-color-hover: ${cardStyle === 'short' ? 'orange' : 'var(--bg-color)'};
+
+      &:nth-child(${index + 1}) {
+        animation-delay: calc(var(--index) * var(--stagger-delay));
+      }
     `
   }}
 
@@ -33,6 +53,7 @@ export const CardUser = styled.div<TCardPicture>`
   color: var(--color);
   padding: 10px 10px 10px;
   transition: background-color 0.2s ease-out 100ms;
+  animation-delay: calc(var(--index) * var(--stagger-delay));
 
   .card-bio {
     &__image {
@@ -44,6 +65,9 @@ export const CardUser = styled.div<TCardPicture>`
   &:focus {
     background-color: var(--bg-color-hover);
   }
+
+  animation: ${cardEntrance} 700ms ease-out;
+  animation-fill-mode: backwards;
 `
 
 const CardImage = (props: any) => {

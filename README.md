@@ -31,13 +31,9 @@
 
 # TODO
 
-- [ ] colocar animação no card
-- [ ] rever o card de usuário para separar o component ou não
 - [ ] rever responsivo
 - [ ] rever espeçamento dos card
 - [ ] rever strong
-- [ ] rever imagem
-- [ ] Criar um compound?
 - [ ] Criar um custom hook?
 - [ ] test?
 - [ ] adicionar alias
