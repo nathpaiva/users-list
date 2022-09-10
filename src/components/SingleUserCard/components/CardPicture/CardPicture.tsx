@@ -3,6 +3,7 @@ import React from 'react'
 import { css } from '@emotion/react'
 import styled from '@emotion/styled'
 
+import { MEDIA } from '../../../../constants'
 import { TSingleUserCard } from '../../type'
 
 type TCardPicture = {
@@ -67,18 +68,19 @@ export const CardPicture: React.FC<TCardPicture> = ({
       {...restProps}
     >
       <picture>
-        {/* @TODO: fix image */}
-        {/* 269 x 269
-128 x 128
-538 x 538 */}
-        {/* <source media="(min-width: 75em)" srcSet={userData.picture.large} /> */}
-        <source media="(min-width: 40em)" srcSet={userData.picture.large} />
+        <source
+          media={`(max-width: ${MEDIA.tablet})`}
+          srcSet={userData.picture.medium}
+        />
+        <source
+          media={`(max-width: ${MEDIA.desktop})`}
+          srcSet={userData.picture.large}
+        />
+
         <img
-          src={userData.picture.medium}
+          src={userData.picture.large}
           alt={`Image profile of: ${userData.name.first} ${userData.name.last}`}
           className="card-bio__image"
-          // width="269"
-          // height="269"
           loading="lazy"
           decoding="async"
         />
