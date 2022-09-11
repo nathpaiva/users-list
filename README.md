@@ -28,7 +28,3 @@
 
 - remove the node_modules folder
 - zip up the project folder and please send it back to the recruiter
-
-# TODO
-
-- [ ] adicionar alias
