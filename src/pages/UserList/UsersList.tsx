@@ -18,7 +18,7 @@ export const UserList = () => {
 
   return (
     <>
-      {data.map((userData, index) => {
+      {data.map((userData) => {
         const isCurrentUser = currentUser?.login.uuid === userData.login.uuid
 
         return (
@@ -33,8 +33,7 @@ export const UserList = () => {
               setCurrentUser(userData)
               setCurrentTab(1)
             }}
-            index={index}
-            className="animate"
+            className="cardUser-animate"
           >
             <CardUser.Image />
             <CardUser.Description>

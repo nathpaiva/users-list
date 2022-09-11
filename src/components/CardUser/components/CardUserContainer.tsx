@@ -7,16 +7,14 @@ import { CardUserContext } from './CardUserContext'
 
 type TCardPicture = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   userSelected: boolean
-  index: number
 }
 
 export const CardUserContainer = styled.div<TCardPicture>`
-  ${({ userSelected, index }) => {
+  ${({ userSelected, as }) => {
     const { cardStyle } = useContext(CardUserContext)
 
     return css`
       --stagger-delay: 90ms;
-      --index: ${index + 1};
       --bg-color-style: ${cardStyle === 'short'
         ? 'var(--bg-c-light)'
         : 'var(--bg-c-dark)'};
@@ -26,8 +24,14 @@ export const CardUserContainer = styled.div<TCardPicture>`
       --pd-top: ${cardStyle === 'short' ? '20px' : '10px'};
       --flex-dir: ${cardStyle === 'short' ? 'row' : 'column'};
 
-      --bg-color: ${userSelected ? 'red' : 'var(--bg-color-style)'};
-      --bg-color-hover: ${cardStyle === 'short' ? 'orange' : 'var(--bg-color)'};
+      --bg-color: ${userSelected
+        ? 'var(--color-highlight)'
+        : 'var(--bg-color-style)'};
+      --bg-color-hover: ${cardStyle === 'short'
+        ? 'var(--color-highlight-inverse)'
+        : 'var(--bg-color)'};
+
+      ${as === 'button' && 'cursor: pointer;'}
     `
   }}
 
