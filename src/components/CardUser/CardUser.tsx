@@ -1,4 +1,4 @@
-import React, { Children, isValidElement } from 'react'
+import React, { Children, cloneElement, isValidElement } from 'react'
 
 import {
   CardDescription,
@@ -22,17 +22,21 @@ export const CardUser = ({
   children,
   cardStyle,
   userSelected,
+  className,
   ...props
 }: TCardUserCompound) => {
   const childByScope = {
     userCard: [] as React.ReactNode[],
     fullProfile: [] as React.ReactNode[],
   }
-  Children.forEach(children, (child) => {
+  Children.forEach(children, (child, index) => {
     // in case the dev tries to render the a invalid element
     if (!child.type && !isValidElement(child))
       return console.warn('Invalid component: ', child)
 
+    /**
+     * split components to render in the correct position
+     */
     if (
       child.type.name === 'CardImage' ||
       child.type.name === 'CardDescription'
@@ -41,7 +45,16 @@ export const CardUser = ({
       return
     }
 
-    childByScope.fullProfile.push(child)
+    /**
+     * adds class in the detail content to animate the container
+     */
+    childByScope.fullProfile.push(
+      cloneElement(child, {
+        className,
+        key: `full-profile-detail-${index}`,
+        ...child.props,
+      }),
+    )
   })
 
   return (
@@ -51,7 +64,11 @@ export const CardUser = ({
         cardStyle,
       }}
     >
-      <CardUserContainer userSelected={userSelected} {...props}>
+      <CardUserContainer
+        userSelected={userSelected}
+        className={className}
+        {...props}
+      >
         {childByScope.userCard}
       </CardUserContainer>
 

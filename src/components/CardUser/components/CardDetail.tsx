@@ -12,7 +12,7 @@ const CardFullProfile = styled.div`
   background-color: var(--bg-c-light);
   color: var(--color-light);
 
-  &:not(:first-child) {
+  &:not(:first-of-type) {
     row-gap: 10px;
   }
 

@@ -3,7 +3,7 @@ import { css, keyframes } from '@emotion/react'
 const cardEntrance = keyframes`
   from {
     opacity: 0;
-    transform: scale(0.3);
+    transform: scale(0.7);
   }
   to {
     opacity: 1;
@@ -81,5 +81,25 @@ export const animateCards = css`
   @media (prefers-reduced-motion) {
     transition: none;
     animation: none;
+  }
+`
+
+const cardEntranceFullProfile = keyframes`
+  from {
+    opacity: 0;
+    /* transform: scale(0.3); */
+  }
+  to {
+    opacity: 1;
+    /* transform: scale(1); */
+  }
+`
+
+export const animateFullProfile = css`
+  animation: ${cardEntranceFullProfile} 500ms ease-out;
+  animation-fill-mode: backwards;
+
+  @media (prefers-reduced-motion) {
+    transition: none;
   }
 `

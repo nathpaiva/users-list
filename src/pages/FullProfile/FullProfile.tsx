@@ -10,7 +10,11 @@ export const FullProfile: React.FC = () => {
   if (!currentUser) return <div tabIndex={0}>No current user selected</div>
 
   return (
-    <CardUser userData={currentUser} cardStyle="full">
+    <CardUser
+      className="fullProfile-animate"
+      userData={currentUser}
+      cardStyle="full"
+    >
       <CardUser.Image tabIndex={0} />
       <CardUser.Description tabIndex={0}>
         <p>
