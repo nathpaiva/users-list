@@ -6,8 +6,15 @@ import { MEDIA } from '../../../constants'
 
 const CardFullProfile = styled.div`
   padding: 10px;
+
+  display: flex;
+  flex-direction: column;
   background-color: var(--bg-c-light);
   color: var(--color-light);
+
+  &:not(:first-child) {
+    row-gap: 10px;
+  }
 
   @media (min-width: ${MEDIA.mobile}) {
     padding: 20px;

@@ -8,6 +8,8 @@ const CardDescriptionStyle = styled.div`
 
   padding-top: var(--pd-top);
   flex-direction: var(--flex-dir);
+
+  row-gap: 10px;
 `
 // create as a component to have access of the component Name
 export const CardDescription: React.FC<CardCommonProps> = (props) => (

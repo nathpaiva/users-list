@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Global, css, keyframes } from '@emotion/react'
+import { Global, css } from '@emotion/react'
 
 import { animateCards } from './cardAnimation'
 

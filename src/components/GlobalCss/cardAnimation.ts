@@ -80,5 +80,6 @@ export const animateCards = css`
 
   @media (prefers-reduced-motion) {
     transition: none;
+    animation: none;
   }
 `

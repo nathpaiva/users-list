@@ -21,5 +21,9 @@ export const Loader = styled.div`
     width: 140px;
     height: 140px;
     animation: ${spinner} 4s linear infinite;
+
+    @media (prefers-reduced-motion) {
+      animation: none;
+    }
   }
 `
