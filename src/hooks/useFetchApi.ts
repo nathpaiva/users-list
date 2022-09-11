@@ -27,7 +27,7 @@ type DataResponse = {
 export const useFetch = (): IState => {
   const [data, setData] = useState<DataResponse>({})
   const [apiERROR, setApiERROR] = useState<ErrorState>(undefined)
-  const [isLoading, setIsLoading] = useState(true)
+  const [isLoading, setIsLoading] = useState<boolean>(true)
 
   useEffect(() => {
     if (!isLoading) return

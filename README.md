@@ -28,3 +28,10 @@
 
 - remove the node_modules folder
 - zip up the project folder and please send it back to the recruiter
+
+# Nath's notes:
+
+- I opted to upgrades the React and also added the Typescript, so I could have a better environment to code.
+- As I know T2 use emotionJs, so I added this dependency to create the application.
+- I didn't have enoughs time to add tests :( I'm really sorry about that, but I'd like to invite you to check this repo [quiz](https://github.com/nathpaiva/quiz) that I have some test examples, but definitely now a days I have more understood and knowledge related to tests and code.
+- I hope you peeps enjoy my work, looking forward to meet you all.
