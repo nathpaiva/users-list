@@ -34,4 +34,51 @@
 - I opted to upgrades the React and also added the Typescript, so I could have a better environment to code.
 - As I know T2 use emotionJs, so I added this dependency to create the application.
 - I didn't have enoughs time to add tests :( I'm really sorry about that, but I'd like to invite you to check this repo [quiz](https://github.com/nathpaiva/quiz) that I have some test examples, but definitely now a days I have more understood and knowledge related to tests and code.
-- I hope you peeps enjoy my work, looking forward to meet you all.
+
+## Project Architecture
+
+```bash
+.
+├── components
+│ ├── CardUser
+│ ├── GlobalCss
+│ ├── Header
+│ ├── InfinityScroll
+│ ├── Loader
+│ ├── TabPanel
+│ ├── TabProvider
+│ ├── UserProvider
+│ └── index.ts
+├── constants
+│ └── index.ts
+├── helpers
+│ └── index.ts
+├── hooks
+│ ├── index.ts
+│ └── useFetchApi.ts
+├── index.tsx
+├── pages
+│ ├── FullProfile
+│ ├── Main.tsx
+│ └── UserList
+├── react-app-env.d.ts
+├── setupTests.ts
+└── type.d.ts
+```
+
+The project is spited by:
+
+- `pages`: responsible for having each page the project contains.
+- `components`: responsible for containing the sharable components. In the case, that the component has more complexity the component folder could contain an internal `component` folder, a `hook`, `type` etc.
+- `constants`: has the sharable values which are used inside the application
+- `hooks`: has the sharable `hooks` which all pages or components can take advantage
+
+### The end
+
+I hope you peeps enjoy my work, looking forward to meet you all.
+
+Thank you,
+
+[Nath Paiva 🛴: github](https://github.com/nathpaiva)
+
+[Linkedin](https://www.linkedin.com/in/nathpaiva/)
