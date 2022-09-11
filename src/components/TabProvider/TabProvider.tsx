@@ -16,7 +16,7 @@ type TTabContext = {
   children: React.ReactNode
 }
 
-export const TabContext: FC<TTabContext> = ({ children }) => {
+export const TabProvider: FC<TTabContext> = ({ children }) => {
   const [currentTab, setCurrentTab] = useState<TCTabContext['currentTab']>(0)
   const context = useMemo(() => {
     return { currentTab, setCurrentTab }

@@ -4,7 +4,7 @@ import { css } from '@emotion/react'
 import styled from '@emotion/styled'
 
 import { MEDIA } from '../../constants'
-import { useTabContext } from '../TabContext'
+import { useTabContext } from '../TabProvider'
 
 type TTabPanel = {
   index: number

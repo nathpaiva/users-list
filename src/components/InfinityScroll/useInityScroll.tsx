@@ -1,11 +1,10 @@
-import { useContext, useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
-import { InfinityScrollContext } from './InfinityScrollContext'
+import { useInfinityScrollContext } from './InfinityScrollProvider'
 
 export const useInfinityScroll = () => {
-  const { data, isLoading, hasMoreUserToLoad, loadDataChunk } = useContext(
-    InfinityScrollContext,
-  )
+  const { data, isLoading, hasMoreUserToLoad, loadDataChunk } =
+    useInfinityScrollContext()
 
   const loader = useRef(loadDataChunk)
 

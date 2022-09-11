@@ -5,9 +5,9 @@ import {
   InfinityScrollProvider,
   Loader,
   GlobalCss,
-  TabContext,
+  TabProvider,
   TabPanel,
-  UserContext,
+  UserProvider,
 } from '../components'
 import { useFetch } from '../hooks'
 import { FullProfile } from './FullProfile'
@@ -24,9 +24,9 @@ export function Main() {
     <>
       <GlobalCss />
       {/* responsible to manager the Tab state */}
-      <TabContext>
+      <TabProvider>
         {/* responsible to manager the current user */}
-        <UserContext>
+        <UserProvider>
           <Header />
 
           <TabPanel index={0}>
@@ -39,8 +39,8 @@ export function Main() {
           <TabPanel layout="grid:2" index={1} tabindex="0">
             <FullProfile />
           </TabPanel>
-        </UserContext>
-      </TabContext>
+        </UserProvider>
+      </TabProvider>
     </>
   )
 }
