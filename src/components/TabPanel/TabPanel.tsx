@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { css, keyframes } from '@emotion/react'
+import { css } from '@emotion/react'
 import styled from '@emotion/styled'
 
 import { MEDIA } from '../../constants'
@@ -12,18 +12,6 @@ type TTabPanel = {
   layout?: 'grid:2' | 'grid:4'
   tabindex?: string
 }
-
-const fadeIn = keyframes`
-  0% {
-    opacity: 0;
-    transform: scale(0);
-  }
-
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-`
 
 const grid4Col = css`
   display: grid;
@@ -66,7 +54,7 @@ const Container = styled.section<TContainer>`
   margin: 40px auto;
   padding: 0 10px;
 
-  ${({ hidden, layout }) => (hidden ? 'none' : layout)}
+  ${({ hidden, layout }) => (hidden ? 'display: none;' : layout)}
 `
 
 export const TabPanel: React.FC<TTabPanel> = ({

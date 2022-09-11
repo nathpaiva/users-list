@@ -2,8 +2,9 @@ import React from 'react'
 
 import {
   Header,
+  InfinityScrollProvider,
   Loader,
-  ResetCss,
+  GlobalCss,
   TabContext,
   TabPanel,
   UserContext,
@@ -17,18 +18,22 @@ export function Main() {
 
   if (isLoading) return <Loader />
   if (errorMessage) return <div>{errorMessage.error}</div>
-  if (!userData.results) return <div>We couldn't load the user list</div>
+  if (!userData.results) return <div>We cound&rsquo;t load the user list</div>
 
   return (
     <>
-      <ResetCss />
-
+      <GlobalCss />
+      {/* responsible to manager the Tab state */}
       <TabContext>
-        <UserContext userList={userData.results}>
+        {/* responsible to manager the current user */}
+        <UserContext>
           <Header />
 
           <TabPanel index={0}>
-            <UserList />
+            {/* responsible to return the list user data */}
+            <InfinityScrollProvider userData={userData.results}>
+              <UserList />
+            </InfinityScrollProvider>
           </TabPanel>
 
           <TabPanel layout="grid:2" index={1} tabindex="0">

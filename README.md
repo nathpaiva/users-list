@@ -31,9 +31,6 @@
 
 # TODO
 
-- [ ] rever responsivo
-- [ ] rever espeçamento dos card
+- [ ] rever espeçamento dos textos do card
 - [ ] rever strong
-- [ ] Criar um custom hook?
-- [ ] test?
 - [ ] adicionar alias
