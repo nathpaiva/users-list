@@ -17,10 +17,7 @@ export const Header: React.FC = () => {
 
   return (
     <AppBar position="static">
-      <Tabs
-        value={currentTab}
-        onChange={(event, newTab) => setCurrentTab(newTab)}
-      >
+      <Tabs value={currentTab} onChange={(_, newTab) => setCurrentTab(newTab)}>
         <Tab label="Users" />
         <Tab label={`Selected User - ${quantityUser}`} />
       </Tabs>
