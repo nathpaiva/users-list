@@ -31,6 +31,4 @@
 
 # TODO
 
-- [ ] rever espeçamento dos textos do card
-- [ ] rever strong
 - [ ] adicionar alias

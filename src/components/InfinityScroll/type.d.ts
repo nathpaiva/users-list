@@ -4,7 +4,7 @@ type TCommon = {
   hasMoreUserToLoad: boolean
 }
 type TInfinityScrollContext = TCommon & {
-  loadDataChunk: React.DispatchWithoutAction
+  loadMoreItems: React.DispatchWithoutAction
 }
 type TState = TCommon & {
   startParam: number
@@ -18,4 +18,9 @@ type TAction = {
     data: TUserData[]
     length: number
   }
+}
+
+type TInfinityScrollControl = {
+  loadingMessage?: string
+  dataEndMessage?: string
 }

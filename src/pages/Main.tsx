@@ -31,7 +31,11 @@ export function Main() {
 
           <TabPanel index={0}>
             {/* responsible to return the list user data */}
-            <InfinityScrollProvider userData={userData.results}>
+            <InfinityScrollProvider
+              userData={userData.results}
+              dataEndMessage="No users to load!"
+              loadingMessage="Loading. . ."
+            >
               <UserList />
             </InfinityScrollProvider>
           </TabPanel>

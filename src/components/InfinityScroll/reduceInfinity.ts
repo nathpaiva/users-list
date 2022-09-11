@@ -14,7 +14,7 @@ export const reducerInfinity = (state: TState, action: TAction): TState => {
         ...state,
         isLoading: false,
         data: [...state.data, ...action.payload.data],
-        startParam: startParam,
+        startParam,
         hasMoreUserToLoad: startParam !== action.payload.length,
       }
     }

@@ -1,7 +1,11 @@
 import React from 'react'
 
-import { CardUser, useTabContext, useUserContext } from '../../components'
-import { useInfinityScroll } from '../../components/InfinityScroll/useInityScroll'
+import {
+  useInfinityScroll,
+  CardUser,
+  useTabContext,
+  useUserContext,
+} from '../../components'
 
 export const UserList = () => {
   const context = useUserContext()
@@ -10,7 +14,7 @@ export const UserList = () => {
   const { setCurrentUser, currentUser } = context
   const { setCurrentTab } = tabContext
 
-  const { data, isLoading, hasMoreUserToLoad, setElement } = useInfinityScroll()
+  const { data } = useInfinityScroll()
 
   return (
     <>
@@ -41,10 +45,6 @@ export const UserList = () => {
           </CardUser>
         )
       })}
-
-      {isLoading && <h3>Loading. . .</h3>}
-      {!isLoading && hasMoreUserToLoad && <div ref={setElement} />}
-      {!hasMoreUserToLoad && <h3>No users to load!</h3>}
     </>
   )
 }
