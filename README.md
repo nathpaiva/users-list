@@ -1,6 +1,5 @@
-## Last updated 5/10/22
-
-## DO NOT SPEND MORE THAN 4 HRS ON THIS TASK
+[![Netlify Status](https://api.netlify.com/api/v1/badges/95393da5-6fb5-4f33-b75c-d7039990d58b/deploy-status)](https://app.netlify.com/sites/classy-kangaroo-70b853/deploys)
+[![wakatime](https://wakatime.com/badge/user/2aeba48e-4558-4f58-965a-fc1cd46ba978/project/eb0a98c4-7a50-45de-9aa1-fd1461d4a565.svg)](https://wakatime.com/badge/user/2aeba48e-4558-4f58-965a-fc1cd46ba978/project/eb0a98c4-7a50-45de-9aa1-fd1461d4a565)
 
 ## Getting Started
 
@@ -23,17 +22,6 @@
 3. When I click on a tile in the Users tab, the tile you clicked on should highlight (tile background can just be yellow instead of gray) and the Selected User tab should show a more detailed profile of that user that looks like `./mocks/selected-user/mock.png`. Do your best to match the font, but any will do.
 
 4. Both views should be mobile friendly and show us examples of responsive design. There is not a specific mock for this and you may use your discretion on what is mobile friendly.
-
-## Submission
-
-- remove the node_modules folder
-- zip up the project folder and please send it back to the recruiter
-
-# Nath's notes:
-
-- I opted to upgrades the React and also added the Typescript, so I could have a better environment to code.
-- As I know T2 use emotionJs, so I added this dependency to create the application.
-- I didn't have enoughs time to add tests :( I'm really sorry about that, but I'd like to invite you to check this repo [quiz](https://github.com/nathpaiva/quiz) that I have some test examples, but definitely now a days I have more understood and knowledge related to tests and code.
 
 ## Project Architecture
 
@@ -72,13 +60,3 @@ The project is spited by:
 - `components`: responsible for containing the sharable components. In the case, that the component has more complexity the component folder could contain an internal `component` folder, a `hook`, `type` etc.
 - `constants`: has the sharable values which are used inside the application
 - `hooks`: has the sharable `hooks` which all pages or components can take advantage
-
-### The end
-
-I hope you peeps enjoy my work, looking forward to meet you all.
-
-Thank you,
-
-[Nath Paiva 🛴: github](https://github.com/nathpaiva)
-
-[Linkedin](https://www.linkedin.com/in/nathpaiva/)
