@@ -12,7 +12,8 @@ const CardDescriptionStyle = styled.div`
   row-gap: 10px;
 `
 // create as a component to have access of the component Name
-export const CardDescription: React.FC<CardCommonProps> = (props) => (
-  <CardDescriptionStyle {...props} />
+export const CardDescription = ({ tabIndex, children }: CardCommonProps) => (
+  <CardDescriptionStyle tabIndex={tabIndex}>{children}</CardDescriptionStyle>
 )
+
 CardDescription.displayName = 'CardDescription'

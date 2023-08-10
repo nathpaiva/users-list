@@ -8,8 +8,7 @@ import { CardUserContext } from './CardUserContext'
 type TCardPicture = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   userSelected: boolean
   role?: string
-  // TODO: change type
-  onKeyDown?: (event: KeyboardEvent<any>) => void
+  onKeyDown?: (event: KeyboardEvent<Element>) => void
   onClick?: () => void
 }
 

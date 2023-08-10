@@ -22,8 +22,7 @@ export type TCardUserCompound = {
   className?: string
   tabIndex?: number
   role?: string
-  // TODO: change type
-  onKeyDown?: (event: KeyboardEvent<any>) => void
+  onKeyDown?: (event: KeyboardEvent<Element>) => void
   onClick?: () => void
 }
 
