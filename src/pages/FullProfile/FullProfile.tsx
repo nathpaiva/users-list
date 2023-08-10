@@ -7,7 +7,7 @@ export const FullProfile: React.FC = () => {
   if (!context) return null
   const { currentUser } = context
 
-  if (!currentUser) return <div tabIndex={0}>No current user selected</div>
+  if (!currentUser) return <div>No current user selected</div>
 
   return (
     <CardUser

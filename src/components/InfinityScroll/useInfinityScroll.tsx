@@ -1,6 +1,6 @@
-import { useEffect, useRef, useState } from 'react'
+import { useContext, useEffect, useRef, useState } from 'react'
 
-import { useInfinityScrollContext } from './InfinityScrollProvider'
+import { InfinityScrollContext } from './InfinityScrollContext'
 
 type TUseInfinityScroll = {
   data: TUserData[]
@@ -10,8 +10,9 @@ type TUseInfinityScroll = {
 }
 
 export const useInfinityScroll = (): TUseInfinityScroll => {
-  const { data, isLoading, hasMoreUserToLoad, loadMoreItems } =
-    useInfinityScrollContext()
+  const { data, isLoading, hasMoreUserToLoad, loadMoreItems } = useContext(
+    InfinityScrollContext,
+  )
 
   const loader = useRef(loadMoreItems)
 
