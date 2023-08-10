@@ -6,7 +6,7 @@ import styled from '@emotion/styled'
 import { CardUserContext } from './CardUserContext'
 
 type TCardPicture = ButtonHTMLAttributes<HTMLButtonElement> & {
-  userSelected: boolean
+  userSelected?: boolean
   role?: string
   onKeyDown?: (event: KeyboardEvent<Element>) => void
   onClick?: () => void

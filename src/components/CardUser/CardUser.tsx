@@ -18,7 +18,7 @@ import {
 } from './components'
 
 export type TCardUserCompound = {
-  children: ReactElement[]
+  children: ReactElement[] | ReactElement
   userData: TUserData
   cardStyle?: 'short' | 'full'
   userSelected?: boolean
