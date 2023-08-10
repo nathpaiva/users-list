@@ -5,7 +5,6 @@ import {
   type ReactNode,
   Children,
   cloneElement,
-  isValidElement,
   useMemo,
 } from 'react'
 
@@ -18,7 +17,7 @@ import {
 } from './components'
 
 export type TCardUserCompound = {
-  children: ReactElement[]
+  children: ReactElement[] | ReactElement
   userData: TUserData
   cardStyle?: 'short' | 'full'
   userSelected?: boolean
@@ -46,7 +45,6 @@ export const CardUser = ({
   }
 
   Children.forEach(children, (child) => {
-    if (!child && !isValidElement(child)) return null
     if (
       typeof child === 'number' ||
       typeof child === 'string' ||
@@ -55,7 +53,16 @@ export const CardUser = ({
       return null
 
     // in case the dev tries to render the a invalid element
-    if (!child.type && !isValidElement(child)) {
+    if (
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      (child.type as any).displayName !== 'CardImage' &&
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      (child.type as any).displayName !== 'CardDescription' &&
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      (child.type as any).displayName !== 'CardDetail' &&
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      (child.type as any).displayName !== 'CardUserContainer'
+    ) {
       console.warn('Invalid component: ', child)
       return null
     }

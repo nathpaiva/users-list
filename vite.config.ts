@@ -20,12 +20,18 @@ export default defineConfig({
     coverage: {
       include: ['src/**/*'],
       reporter: ['text', 'json', 'html'],
-      exclude: ['src/**/index.ts', 'src/**/index.tsx', 'src/**/*.d.ts'],
+      exclude: [
+        'src/**/index.ts',
+        'src/**/index.tsx',
+        'src/**/*.d.ts',
+        'src/**/mock.ts',
+      ],
       all: true,
       branches: 0, // 40,
       functions: 0, // 50,
       lines: 0, // 50,
       statements: 0, // 50,
+      cleanOnRerun: false,
     },
   },
   plugins: [

@@ -24,7 +24,7 @@ export const FullProfile = () => {
         <p>{` ${currentUser.location.country}`}</p>
       </CardUser.Description>
 
-      <CardUser.Detail key={currentUser.email} tabIndex={0}>
+      <CardUser.Detail key={currentUser.login.uuid} tabIndex={0}>
         <p>
           <strong>Gender: </strong> {currentUser.gender}
         </p>

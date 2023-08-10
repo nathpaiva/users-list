@@ -13,7 +13,7 @@
     "lint": "eslint \"**/*.{ts,tsx}\"",
     "format": "eslint \"**/*.{ts,tsx}\" --fix",
     "test": "vitest",
-    "coverage": "vitest --coverage",
+    "test:coverage": "vitest --coverage",
     "test:ci": "vitest --coverage --run"
   },
   "browserslist": [
