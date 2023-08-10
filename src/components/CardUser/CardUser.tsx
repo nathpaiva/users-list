@@ -1,4 +1,10 @@
-import React, { Children, cloneElement, isValidElement } from 'react'
+import React, {
+  Children,
+  KeyboardEvent,
+  cloneElement,
+  isValidElement,
+  useMemo,
+} from 'react'
 
 import {
   CardDescription,
@@ -8,31 +14,40 @@ import {
   CardUserContext,
 } from './components'
 
-type TCardUser = typeof CardUserContainer
-
-export type TCardUserCompound = TCardUser['__emotion_styles'] & {
+export type TCardUserCompound = {
   children: React.ReactNode[]
   userData: TUserData
   cardStyle?: 'short' | 'full'
-  userSelected: boolean
+  userSelected?: boolean
+  className?: string
+  tabIndex?: number
+  role?: string
+  // TODO: change type
+  onKeyDown?: (event: KeyboardEvent<any>) => void
+  onClick?: () => void
 }
 
 export const CardUser = ({
   userData,
   children,
   cardStyle,
-  userSelected,
+  userSelected = false,
   className,
-  ...props
+  ...restProps
 }: TCardUserCompound) => {
   const childByScope = {
     userCard: [] as React.ReactNode[],
     fullProfile: [] as React.ReactNode[],
   }
-  Children.forEach(children, (child, index) => {
+  // TODO review this type
+  Children.forEach(children, (child: any, index) => {
+    if (!child && !isValidElement(child)) return null
+
     // in case the dev tries to render the a invalid element
-    if (!child.type && !isValidElement(child))
-      return console.warn('Invalid component: ', child)
+    if (!child.type && !isValidElement(child)) {
+      console.warn('Invalid component: ', child)
+      return null
+    }
 
     /**
      * split components to render in the correct position
@@ -42,32 +57,36 @@ export const CardUser = ({
       child.type.displayName === 'CardDescription'
     ) {
       childByScope.userCard.push(child)
-      return
+      return null
     }
 
     /**
      * adds class in the detail content to animate the container
      */
-    childByScope.fullProfile.push(
+    return childByScope.fullProfile.push(
       cloneElement(child, {
         className,
-        key: `full-profile-detail-${index}`,
+        // TODO change this type
+        key: `full-profile-detail-${index as any}`,
         ...child.props,
       }),
     )
   })
 
+  const providerProps = useMemo(
+    () => ({
+      userData,
+      cardStyle,
+    }),
+    [userData, cardStyle],
+  )
+
   return (
-    <CardUserContext.Provider
-      value={{
-        userData,
-        cardStyle,
-      }}
-    >
+    <CardUserContext.Provider value={providerProps}>
       <CardUserContainer
         userSelected={userSelected}
         className={className}
-        {...props}
+        {...restProps}
       >
         {childByScope.userCard}
       </CardUserContainer>

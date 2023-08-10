@@ -10,11 +10,10 @@ import {
 export const UserList = () => {
   const context = useUserContext()
   const tabContext = useTabContext()
+  const { data } = useInfinityScroll()
   if (!context) return null
   const { setCurrentUser, currentUser } = context
   const { setCurrentTab } = tabContext
-
-  const { data } = useInfinityScroll()
 
   return (
     <>
@@ -30,7 +29,7 @@ export const UserList = () => {
             tabIndex={0}
             aria-pressed={isCurrentUser}
             role="button"
-            onKeyDown={(event: KeyboardEvent) => {
+            onKeyDown={(event) => {
               if (event.key !== 'Enter') return
 
               setCurrentUser(userData)

@@ -1,21 +1,14 @@
-import React, { useContext, useMemo, useReducer, createContext } from 'react'
+import React, { useContext, useMemo, useReducer, useCallback } from 'react'
 
 import { USERS_LOADED, USERS_LOADING, USER_BY_LOAD } from '../../constants'
-import { noop } from '../../helpers'
 import { InfinityScrollControl } from './InfinityScrollControl'
 import { reducerInfinity } from './reduceInfinity'
+import { InfinityScrollContext } from './InfinityScrollContext'
 
 type TInfinityScroll = TInfinityScrollControl & {
   userData: TUserData[]
   children: React.ReactNode
 }
-
-export const InfinityScrollContext = createContext<TInfinityScrollContext>({
-  data: [],
-  hasMoreUserToLoad: true,
-  isLoading: false,
-  loadMoreItems: noop,
-})
 
 export const InfinityScrollProvider: React.FC<TInfinityScroll> = ({
   userData,
@@ -35,7 +28,7 @@ export const InfinityScrollProvider: React.FC<TInfinityScroll> = ({
     return { isLoading, hasMoreUserToLoad, data }
   }, [isLoading, hasMoreUserToLoad, data])
 
-  const loadMoreItems = () => {
+  const loadMoreItems = useCallback(() => {
     /**
      * call the dispatch with USERS_LOADING and the reduce
      * will update the isLoading to `true`
@@ -68,10 +61,20 @@ export const InfinityScrollProvider: React.FC<TInfinityScroll> = ({
       }
       dispatch({ type: USERS_LOADED, payload })
     }, 1000)
-  }
+  }, [startParam, userData])
+
+  const providerProps = useMemo(
+    () => ({
+      isLoading: context.isLoading,
+      data: context.data,
+      hasMoreUserToLoad: context.hasMoreUserToLoad,
+      loadMoreItems,
+    }),
+    [context.isLoading, context.data, context.hasMoreUserToLoad, loadMoreItems],
+  )
 
   return (
-    <InfinityScrollContext.Provider value={{ ...context, loadMoreItems }}>
+    <InfinityScrollContext.Provider value={providerProps}>
       {children}
       <InfinityScrollControl
         dataEndMessage={dataEndMessage}

@@ -42,12 +42,12 @@ export const useFetch = (): IState => {
           `https://randomuser.me/api/?results=${USERS_BY_PAGE}`,
         )
         const results = await response.json()
-        setIsLoading((isLoading) => !isLoading)
+        setIsLoading((_isLoading) => !_isLoading)
         setApiERROR(results.message)
         setData(results)
       } catch (error) {
         setData({})
-        setIsLoading((isLoading) => !isLoading)
+        setIsLoading((_isLoading) => !_isLoading)
         setApiERROR(error as ErrorState)
       }
     }

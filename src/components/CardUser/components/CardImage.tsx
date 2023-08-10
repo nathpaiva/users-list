@@ -20,7 +20,7 @@ export const CardImage: React.FC<CardCommonProps> = ({ tabIndex }) => {
 
       <img
         src={userData.picture.large}
-        alt={`Image profile of: ${userData.name.first} ${userData.name.last}`}
+        alt={`profile of: ${userData.name.first} ${userData.name.last}`}
         className="card-bio__image"
         loading="lazy"
         decoding="async"

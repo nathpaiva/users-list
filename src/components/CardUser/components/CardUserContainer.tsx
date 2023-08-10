@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { KeyboardEvent, useContext } from 'react'
 
 import { css } from '@emotion/react'
 import styled from '@emotion/styled'
@@ -7,6 +7,10 @@ import { CardUserContext } from './CardUserContext'
 
 type TCardPicture = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   userSelected: boolean
+  role?: string
+  // TODO: change type
+  onKeyDown?: (event: KeyboardEvent<any>) => void
+  onClick?: () => void
 }
 
 export const CardUserContainer = styled.div<TCardPicture>`
