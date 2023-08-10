@@ -1,6 +1,9 @@
-import React, {
+/* eslint-disable no-console */
+import {
+  type KeyboardEvent,
+  type ReactElement,
+  type ReactNode,
   Children,
-  KeyboardEvent,
   cloneElement,
   isValidElement,
   useMemo,
@@ -15,15 +18,14 @@ import {
 } from './components'
 
 export type TCardUserCompound = {
-  children: React.ReactNode[]
+  children: ReactElement[]
   userData: TUserData
   cardStyle?: 'short' | 'full'
   userSelected?: boolean
   className?: string
   tabIndex?: number
   role?: string
-  // TODO: change type
-  onKeyDown?: (event: KeyboardEvent<any>) => void
+  onKeyDown?: (event: KeyboardEvent<Element>) => void
   onClick?: () => void
 }
 
@@ -33,15 +35,24 @@ export const CardUser = ({
   cardStyle,
   userSelected = false,
   className,
-  ...restProps
+  tabIndex,
+  role,
+  onClick,
+  onKeyDown,
 }: TCardUserCompound) => {
   const childByScope = {
-    userCard: [] as React.ReactNode[],
-    fullProfile: [] as React.ReactNode[],
+    userCard: [] as ReactNode[],
+    fullProfile: [] as ReactNode[],
   }
-  // TODO review this type
-  Children.forEach(children, (child: any, index) => {
+
+  Children.forEach(children, (child) => {
     if (!child && !isValidElement(child)) return null
+    if (
+      typeof child === 'number' ||
+      typeof child === 'string' ||
+      typeof child === 'boolean'
+    )
+      return null
 
     // in case the dev tries to render the a invalid element
     if (!child.type && !isValidElement(child)) {
@@ -53,8 +64,11 @@ export const CardUser = ({
      * split components to render in the correct position
      */
     if (
-      child.type.displayName === 'CardImage' ||
-      child.type.displayName === 'CardDescription'
+      // TODO: find how to check the child type
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      (child.type as any).displayName === 'CardImage' ||
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      (child.type as any).displayName === 'CardDescription'
     ) {
       childByScope.userCard.push(child)
       return null
@@ -66,8 +80,6 @@ export const CardUser = ({
     return childByScope.fullProfile.push(
       cloneElement(child, {
         className,
-        // TODO change this type
-        key: `full-profile-detail-${index as any}`,
         ...child.props,
       }),
     )
@@ -86,7 +98,10 @@ export const CardUser = ({
       <CardUserContainer
         userSelected={userSelected}
         className={className}
-        {...restProps}
+        tabIndex={tabIndex}
+        role={role}
+        onClick={onClick}
+        onKeyDown={onKeyDown}
       >
         {childByScope.userCard}
       </CardUserContainer>

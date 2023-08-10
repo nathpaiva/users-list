@@ -1,8 +1,6 @@
-import React from 'react'
-
 import { CardUser, useUserContext } from '../../components'
 
-export const FullProfile: React.FC = () => {
+export const FullProfile = () => {
   const context = useUserContext()
   if (!context) return null
   const { currentUser } = context
@@ -26,7 +24,7 @@ export const FullProfile: React.FC = () => {
         <p>{` ${currentUser.location.country}`}</p>
       </CardUser.Description>
 
-      <CardUser.Detail tabIndex={0}>
+      <CardUser.Detail key={currentUser.email} tabIndex={0}>
         <p>
           <strong>Gender: </strong> {currentUser.gender}
         </p>

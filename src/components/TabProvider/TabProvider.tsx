@@ -1,10 +1,18 @@
-import React, { createContext, FC, useContext, useMemo, useState } from 'react'
+import {
+  type Dispatch,
+  type ReactNode,
+  type SetStateAction,
+  createContext,
+  useContext,
+  useMemo,
+  useState,
+} from 'react'
 
 import { noop } from '../../helpers'
 
 type TCTabContext = {
   currentTab: number
-  setCurrentTab: React.Dispatch<React.SetStateAction<number>>
+  setCurrentTab: Dispatch<SetStateAction<number>>
 }
 
 const CTabContext = createContext<TCTabContext>({
@@ -13,10 +21,10 @@ const CTabContext = createContext<TCTabContext>({
 })
 
 type TTabContext = {
-  children: React.ReactNode
+  children: ReactNode
 }
 
-export const TabProvider: FC<TTabContext> = ({ children }) => {
+export const TabProvider = ({ children }: TTabContext) => {
   const [currentTab, setCurrentTab] = useState<TCTabContext['currentTab']>(0)
   const context = useMemo(() => {
     return { currentTab, setCurrentTab }

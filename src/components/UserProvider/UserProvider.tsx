@@ -1,10 +1,18 @@
-import React, { createContext, FC, useContext, useMemo, useState } from 'react'
+import {
+  type Dispatch,
+  type ReactNode,
+  type SetStateAction,
+  createContext,
+  useContext,
+  useMemo,
+  useState,
+} from 'react'
 
 import { noop } from '../../helpers'
 
 type TUserContext = {
   currentUser: TUserData | null
-  setCurrentUser: React.Dispatch<React.SetStateAction<TUserData | null>>
+  setCurrentUser: Dispatch<SetStateAction<TUserData | null>>
 }
 
 const CUserContext = createContext<TUserContext>({
@@ -13,10 +21,10 @@ const CUserContext = createContext<TUserContext>({
 })
 
 type TUserProvider = {
-  children: React.ReactNode
+  children: ReactNode
 }
 
-export const UserProvider: FC<TUserProvider> = ({ children }) => {
+export const UserProvider = ({ children }: TUserProvider) => {
   const [currentUser, setCurrentUser] = useState<TUserData | null>(null)
   const context = useMemo(() => {
     return { currentUser, setCurrentUser }

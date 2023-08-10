@@ -1,5 +1,3 @@
-import React from 'react'
-
 import styled from '@emotion/styled'
 
 import { MEDIA } from '../../../constants'
@@ -22,7 +20,8 @@ const CardFullProfile = styled.div`
 `
 
 // create as a component to have access of the component Name
-export const CardDetail: React.FC<CardCommonProps> = (props) => (
-  <CardFullProfile {...props} />
+export const CardDetail = ({ tabIndex, children }: CardCommonProps) => (
+  <CardFullProfile tabIndex={tabIndex}>{children}</CardFullProfile>
 )
+
 CardDetail.displayName = 'CardDetail'

@@ -3,7 +3,7 @@ import React, { useContext } from 'react'
 import { MEDIA } from '../../../constants'
 import { CardUserContext } from './CardUserContext'
 
-export const CardImage: React.FC<CardCommonProps> = ({ tabIndex }) => {
+export const CardImage = ({ tabIndex }: CardCommonProps) => {
   const { userData } = useContext(CardUserContext)
   if (!userData) return null
 

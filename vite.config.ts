@@ -1,14 +1,33 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import { resolve } from 'path'
-import react from '@vitejs/plugin-react'
-import { defineConfig, Plugin } from 'vite'
+import { defineConfig, type UserConfig } from 'vite'
 import checker from 'vite-plugin-checker'
-import handlebars from 'vite-plugin-handlebars'
 import svgrPlugin from 'vite-plugin-svgr'
 import viteTsconfigPaths from 'vite-tsconfig-paths'
+import type { InlineConfig } from 'vitest'
+
+import react from '@vitejs/plugin-react'
+
+interface VitestConfigExport extends UserConfig {
+  test: InlineConfig
+}
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  test: {
+    globals: true,
+    environment: 'jsdom',
+    setupFiles: ['./src/setupTests.ts'],
+    coverage: {
+      include: ['src/**/*'],
+      reporter: ['text', 'json', 'html'],
+      exclude: ['src/**/index.ts', 'src/**/index.tsx', 'src/**/*.d.ts'],
+      all: true,
+      branches: 0, // 40,
+      functions: 0, // 50,
+      lines: 0, // 50,
+      statements: 0, // 50,
+    },
+  },
   plugins: [
     react(),
     checker({
@@ -20,15 +39,8 @@ export default defineConfig({
     }),
     viteTsconfigPaths(),
     svgrPlugin(),
-    handlebars({
-      partialDirectory: resolve(__dirname, 'src/partials'),
-    }) as unknown as Plugin,
   ],
   server: {
     port: 3000,
-    proxy: {
-      '/api-server/': '...',
-      '/authorization/': '...',
-    },
   },
-})
+} as VitestConfigExport)

@@ -1,15 +1,14 @@
-import React, { KeyboardEvent, useContext } from 'react'
+import { ButtonHTMLAttributes, KeyboardEvent, useContext } from 'react'
 
 import { css } from '@emotion/react'
 import styled from '@emotion/styled'
 
 import { CardUserContext } from './CardUserContext'
 
-type TCardPicture = React.ButtonHTMLAttributes<HTMLButtonElement> & {
+type TCardPicture = ButtonHTMLAttributes<HTMLButtonElement> & {
   userSelected: boolean
   role?: string
-  // TODO: change type
-  onKeyDown?: (event: KeyboardEvent<any>) => void
+  onKeyDown?: (event: KeyboardEvent<Element>) => void
   onClick?: () => void
 }
 

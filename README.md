@@ -1,4 +1,4 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/95393da5-6fb5-4f33-b75c-d7039990d58b/deploy-status)](https://app.netlify.com/sites/classy-kangaroo-70b853/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/95393da5-6fb5-4f33-b75c-d7039990d58b/deploy-status)](https://app.netlify.com/sites/list-users-infityscroll/deploys)
 [![wakatime](https://wakatime.com/badge/user/2aeba48e-4558-4f58-965a-fc1cd46ba978/project/5de4987f-276b-448d-99ee-bbaf44373897.svg)](https://wakatime.com/badge/user/2aeba48e-4558-4f58-965a-fc1cd46ba978/project/5de4987f-276b-448d-99ee-bbaf44373897)
 
 ## Users list
@@ -53,7 +53,7 @@ The project is spited by:
 
 ## Test developed with:
 
-- [Jest](https://jestjs.io/)
+- [Vitest](https://vitest.dev/)
 
 ## To run the project you need to install:
 

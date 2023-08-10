@@ -1,13 +1,12 @@
-import React from 'react'
-
 import {
   Header,
   InfinityScrollProvider,
-  Loader,
   GlobalCss,
   TabProvider,
   TabPanel,
   UserProvider,
+  GlobalErrorMessage,
+  GlobalLoader,
 } from '../components'
 import { useFetch } from '../hooks'
 import { FullProfile } from './FullProfile'
@@ -16,9 +15,15 @@ import { UserList } from './UserList'
 export function Main() {
   const { userData, isLoading, errorMessage } = useFetch()
 
-  if (isLoading) return <Loader />
-  if (errorMessage) return <div>{errorMessage.error}</div>
-  if (!userData.results) return <div>We cound&rsquo;t load the user list</div>
+  if (isLoading) {
+    return <GlobalLoader />
+  }
+  if (errorMessage?.error) {
+    return <GlobalErrorMessage error={errorMessage.error} />
+  }
+  if (!userData.results) {
+    return <GlobalErrorMessage error="We cound&rsquo;t load the user list" />
+  }
 
   return (
     <>
@@ -34,13 +39,13 @@ export function Main() {
             <InfinityScrollProvider
               userData={userData.results}
               dataEndMessage="No users to load!"
-              loadingMessage="Loading. . ."
+              loadingMessage="Loading..."
             >
               <UserList />
             </InfinityScrollProvider>
           </TabPanel>
 
-          <TabPanel layout="grid:2" index={1} tabindex="0">
+          <TabPanel layout="grid:2" index={1} tabIndex={0}>
             <FullProfile />
           </TabPanel>
         </UserProvider>
