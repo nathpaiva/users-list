@@ -1,15 +1,9 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/95393da5-6fb5-4f33-b75c-d7039990d58b/deploy-status)](https://app.netlify.com/sites/classy-kangaroo-70b853/deploys)
 [![wakatime](https://wakatime.com/badge/user/2aeba48e-4558-4f58-965a-fc1cd46ba978/project/eb0a98c4-7a50-45de-9aa1-fd1461d4a565.svg)](https://wakatime.com/badge/user/2aeba48e-4558-4f58-965a-fc1cd46ba978/project/eb0a98c4-7a50-45de-9aa1-fd1461d4a565)
 
-## Getting Started
-
-- install node 16.x
-- `npm install`
-- `npm start`
-
 ## Instructions
 
-- Build any additional components from scratch. DO NOT use any additional components from the Material library. Showcase your HTML/CSS/Javascript skills.
+- Build any additional components from scratch. DO NOT use any additional components from the Material library. Showcase your `HTML/CSS/Javascript` skills.
 - Refactor/augment the existing code so that it meets the acceptance criteria below and your personal coding standards.
 - Comment freely to convey thoughts/patterns/decisions in the code
 
@@ -60,3 +54,52 @@ The project is spited by:
 - `components`: responsible for containing the sharable components. In the case, that the component has more complexity the component folder could contain an internal `component` folder, a `hook`, `type` etc.
 - `constants`: has the sharable values which are used inside the application
 - `hooks`: has the sharable `hooks` which all pages or components can take advantage
+
+---
+
+## Project developed with:
+
+- Typescript
+- HTML
+- CSS - SASS - Emotion
+
+## Test developed with:
+
+- [Jest](https://jestjs.io/)
+
+## To run the project you need to install:
+
+- [Node](https://nodejs.org/en/download/)
+- [Yarn](https://yarnpkg.com/lang/en/docs/install/)
+
+### And clone the repository
+
+```sh
+$ git clone git@github.com:nathpaiva/take-two.git
+```
+
+## Before starting the project you must install the dependencies:
+
+```sh
+$ yarn
+```
+
+## To start the project you must run the command:
+
+```sh
+$ yarn start
+```
+
+- This command to access [http://localhost:2000](http://localhost:2000)
+
+## If you want to run the tests
+
+```sh
+$ yarn test
+```
+
+## To build the project, by running the command
+
+```sh
+$ yarn build
+```
