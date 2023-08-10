@@ -10,7 +10,7 @@ type TTabPanel = {
   index: number
   children: React.ReactNode
   layout?: 'grid:2' | 'grid:4'
-  tabindex?: string
+  tabIndex?: number
 }
 
 const grid4Col = css`
@@ -47,6 +47,7 @@ const grid2Col = css`
 type TContainer = {
   layout: typeof grid4Col | typeof grid2Col
   hidden: boolean
+  tabIndex?: number
 }
 
 const Container = styled.section<TContainer>`
@@ -60,7 +61,8 @@ const Container = styled.section<TContainer>`
 export const TabPanel: React.FC<TTabPanel> = ({
   index,
   layout = 'grid:4',
-  ...props
+  children,
+  tabIndex,
 }) => {
   const context = useTabContext()
 
@@ -73,7 +75,9 @@ export const TabPanel: React.FC<TTabPanel> = ({
       role="tabpanel"
       aria-labelledby={`tab-panel-${index}`}
       layout={layout === 'grid:4' ? grid4Col : grid2Col}
-      {...props}
-    />
+      tabIndex={tabIndex}
+    >
+      {children}
+    </Container>
   )
 }

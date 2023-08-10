@@ -1,4 +1,4 @@
-import { useContext, useEffect, useRef, useState } from 'react'
+import { Ref, useContext, useEffect, useRef } from 'react'
 
 import { InfinityScrollContext } from './InfinityScrollContext'
 
@@ -6,7 +6,7 @@ type TUseInfinityScroll = {
   data: TUserData[]
   isLoading: boolean
   hasMoreUserToLoad: boolean
-  setElement: React.Dispatch<React.SetStateAction<HTMLDivElement | null>>
+  elementRef: Ref<HTMLDivElement>
 }
 
 export const useInfinityScroll = (): TUseInfinityScroll => {
@@ -16,6 +16,18 @@ export const useInfinityScroll = (): TUseInfinityScroll => {
 
   const loader = useRef(loadMoreItems)
 
+  // TODO change this approach
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const callbackObserver = ([entry]: IntersectionObserverEntry[]) => {
+    /**
+     * get the element which we are observing
+     * to whether call the loadMoreItems or not based on the `isIntersecting` key
+     */
+    if (entry.isIntersecting) {
+      loader.current()
+    }
+  }
+
   useEffect(() => {
     /**
      * to avoid to load the same user data
@@ -23,48 +35,38 @@ export const useInfinityScroll = (): TUseInfinityScroll => {
     loader.current = loadMoreItems
   }, [loadMoreItems])
 
-  const observer = useRef(
-    new IntersectionObserver(
-      (entries) => {
-        /**
-         * get the element which we are observing
-         * to whether call the loadMoreItems or not based on the `isIntersecting` key
-         */
-        const firstEntry = entries[0]
-        if (firstEntry.isIntersecting) {
-          loader.current()
-        }
-      },
-      { threshold: 1 },
-    ),
-  )
-
   /**
    * create the state to use in ref of the element
    * which is observed to update the user data
    * this element could be an empty div
    */
-  const [element, setElement] = useState<HTMLDivElement | null>(null)
+  const elementRef = useRef<HTMLDivElement | null>(null)
 
   useEffect(() => {
+    let observerRefValue: HTMLDivElement | null = null
+    const observer = new IntersectionObserver(callbackObserver, {
+      threshold: 1,
+    })
+
     /**
      * check if the observer element isn't null
      */
-    if (element) {
-      observer.current.observe(element)
+    if (elementRef.current) {
+      observer.observe(elementRef.current)
+      observerRefValue = elementRef.current
     }
 
     return () => {
-      if (element) {
-        observer.current.unobserve(element)
+      if (observerRefValue) {
+        observer.unobserve(observerRefValue)
       }
     }
-  }, [element])
+  }, [elementRef, callbackObserver])
 
   return {
     data,
     isLoading,
     hasMoreUserToLoad,
-    setElement,
+    elementRef,
   }
 }

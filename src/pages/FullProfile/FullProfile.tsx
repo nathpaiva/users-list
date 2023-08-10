@@ -26,7 +26,7 @@ export const FullProfile: React.FC = () => {
         <p>{` ${currentUser.location.country}`}</p>
       </CardUser.Description>
 
-      <CardUser.Detail tabIndex={0}>
+      <CardUser.Detail key={currentUser.email} tabIndex={0}>
         <p>
           <strong>Gender: </strong> {currentUser.gender}
         </p>

@@ -45,7 +45,7 @@ export function Main() {
             </InfinityScrollProvider>
           </TabPanel>
 
-          <TabPanel layout="grid:2" index={1} tabindex="0">
+          <TabPanel layout="grid:2" index={1} tabIndex={0}>
             <FullProfile />
           </TabPanel>
         </UserProvider>
