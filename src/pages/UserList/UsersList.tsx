@@ -27,8 +27,15 @@ export const UserList = () => {
             userData={userData}
             cardStyle="short"
             userSelected={isCurrentUser}
-            as="button"
-            type="button"
+            tabIndex={0}
+            aria-pressed={isCurrentUser}
+            role="button"
+            onKeyDown={(event: KeyboardEvent) => {
+              if (event.key !== 'Enter') return
+
+              setCurrentUser(userData)
+              setCurrentTab(1)
+            }}
             onClick={() => {
               setCurrentUser(userData)
               setCurrentTab(1)

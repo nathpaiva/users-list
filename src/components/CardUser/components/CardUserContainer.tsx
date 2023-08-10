@@ -10,7 +10,7 @@ type TCardPicture = React.ButtonHTMLAttributes<HTMLButtonElement> & {
 }
 
 export const CardUserContainer = styled.div<TCardPicture>`
-  ${({ userSelected, as }) => {
+  ${({ userSelected, role }) => {
     const { cardStyle } = useContext(CardUserContext)
 
     return css`
@@ -31,7 +31,7 @@ export const CardUserContainer = styled.div<TCardPicture>`
         ? 'var(--color-highlight-inverse)'
         : 'var(--bg-color)'};
 
-      ${as === 'button' && 'cursor: pointer;'}
+      ${role === 'button' && 'cursor: pointer;'}
     `
   }}
 

@@ -38,8 +38,8 @@ export const CardUser = ({
      * split components to render in the correct position
      */
     if (
-      child.type.name === 'CardImage' ||
-      child.type.name === 'CardDescription'
+      child.type.displayName === 'CardImage' ||
+      child.type.displayName === 'CardDescription'
     ) {
       childByScope.userCard.push(child)
       return
