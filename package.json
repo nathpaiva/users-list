@@ -39,7 +39,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "babel-preset-react-app": "^10.0.1",
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "eslint-config-prettier": "^8.5.0",
     "eslint-import-resolver-typescript": "^3.5.1",
     "eslint-plugin-import-helpers": "^1.2.1",
