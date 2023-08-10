@@ -2,6 +2,10 @@ import { useState, useEffect } from 'react'
 
 import { USERS_BY_PAGE } from '../constants'
 
+type TryCatchErrorFormat = {
+  message: string
+}
+
 type ErrorState =
   | {
       error?: string
@@ -38,22 +42,28 @@ export const useFetch = (): IState => {
 
     async function apiCall() {
       try {
-        const response = await fetch(
+        const apiResponse = await fetch(
           `https://randomuser.me/api/?results=${USERS_BY_PAGE}`,
         )
-        const results = await response.json()
+
+        const response = await apiResponse.json()
+
         setIsLoading((_isLoading) => !_isLoading)
-        setApiERROR(results.message)
-        setData(results)
+        setApiERROR(undefined)
+        setData(response)
       } catch (error) {
         setData({})
         setIsLoading((_isLoading) => !_isLoading)
-        setApiERROR(error as ErrorState)
+        setApiERROR(() => ({
+          error: `${
+            (error as TryCatchErrorFormat).message
+          }, please try again later.`,
+        }))
       }
     }
 
     apiCall()
-  }, [])
+  }, [apiERROR, isLoading])
 
   return { userData: data, isLoading, errorMessage: apiERROR }
 }
