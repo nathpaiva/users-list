@@ -1,7 +1,7 @@
 import { render } from '@testing-library/react'
 
 import { CardUserContext } from '../CardUserContext'
-import { userDataMock } from './mock'
+import { userDataMock } from '../../__tests__/mock'
 
 describe('<CardUserContainer />', () => {
   it('should render CardUserContainer', () => {

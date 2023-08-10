@@ -2,7 +2,7 @@ import { render } from '@testing-library/react'
 
 import { CardUser } from '../../CardUser'
 import { CardUserContainer } from '../CardUserContainer'
-import { userDataMock } from './mock'
+import { userDataMock } from '../../__tests__/mock'
 
 describe('<CardUserContainer />', () => {
   it('should render CardUserContainer', () => {
