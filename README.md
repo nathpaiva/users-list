@@ -53,7 +53,7 @@ The project is spited by:
 
 ## Test developed with:
 
-- [Jest](https://jestjs.io/)
+- [Vitest](https://vitest.dev/)
 
 ## To run the project you need to install:
 
