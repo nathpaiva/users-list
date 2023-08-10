@@ -1,14 +1,13 @@
-import React from 'react'
-
 import { css } from '@emotion/react'
 import styled from '@emotion/styled'
 
+import type { ReactNode } from 'react'
 import { MEDIA } from '../../constants'
 import { useTabContext } from '../TabProvider'
 
 type TTabPanel = {
   index: number
-  children: React.ReactNode
+  children: ReactNode
   layout?: 'grid:2' | 'grid:4'
   tabIndex?: number
 }
@@ -58,12 +57,12 @@ const Container = styled.section<TContainer>`
   ${({ hidden, layout }) => (hidden ? 'display: none;' : layout)}
 `
 
-export const TabPanel: React.FC<TTabPanel> = ({
+export const TabPanel = ({
   index,
   layout = 'grid:4',
   children,
   tabIndex,
-}) => {
+}: TTabPanel) => {
   const context = useTabContext()
 
   if (!context) return null

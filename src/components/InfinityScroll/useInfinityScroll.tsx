@@ -1,4 +1,4 @@
-import { Ref, useContext, useEffect, useRef } from 'react'
+import { type Ref, useContext, useEffect, useRef } from 'react'
 
 import { InfinityScrollContext } from './InfinityScrollContext'
 

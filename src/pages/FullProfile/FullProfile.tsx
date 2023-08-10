@@ -1,8 +1,6 @@
-import React from 'react'
-
 import { CardUser, useUserContext } from '../../components'
 
-export const FullProfile: React.FC = () => {
+export const FullProfile = () => {
   const context = useUserContext()
   if (!context) return null
   const { currentUser } = context

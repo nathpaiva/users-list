@@ -1,9 +1,9 @@
 /* eslint-disable no-console */
 import {
+  type KeyboardEvent,
+  type ReactElement,
+  type ReactNode,
   Children,
-  KeyboardEvent,
-  ReactElement,
-  ReactNode,
   cloneElement,
   isValidElement,
   useMemo,

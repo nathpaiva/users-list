@@ -1,5 +1,3 @@
-import React from 'react'
-
 import AppBar from '@material-ui/core/AppBar'
 import Tab from '@material-ui/core/Tab'
 import Tabs from '@material-ui/core/Tabs'
@@ -7,7 +5,7 @@ import Tabs from '@material-ui/core/Tabs'
 import { useTabContext } from '../TabProvider'
 import { useUserContext } from '../UserProvider'
 
-export const Header: React.FC = () => {
+export const Header = () => {
   const context = useTabContext()
   const userContext = useUserContext()
   if (!context && !userContext) return null

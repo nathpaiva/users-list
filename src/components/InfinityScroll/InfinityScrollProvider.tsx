@@ -1,4 +1,4 @@
-import React, { useContext, useMemo, useReducer, useCallback } from 'react'
+import { useContext, useMemo, useReducer, useCallback, ReactNode } from 'react'
 
 import { USERS_LOADED, USERS_LOADING, USER_BY_LOAD } from '../../constants'
 import { InfinityScrollControl } from './InfinityScrollControl'
@@ -7,15 +7,15 @@ import { InfinityScrollContext } from './InfinityScrollContext'
 
 type TInfinityScroll = TInfinityScrollControl & {
   userData: TUserData[]
-  children: React.ReactNode
+  children: ReactNode
 }
 
-export const InfinityScrollProvider: React.FC<TInfinityScroll> = ({
+export const InfinityScrollProvider = ({
   userData,
   children,
   dataEndMessage,
   loadingMessage,
-}) => {
+}: TInfinityScroll) => {
   const [{ isLoading, hasMoreUserToLoad, data, startParam }, dispatch] =
     useReducer(reducerInfinity, {
       isLoading: false,

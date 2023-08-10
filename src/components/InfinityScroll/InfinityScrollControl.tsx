@@ -1,9 +1,9 @@
 import { useInfinityScroll } from './useInfinityScroll'
 
-export const InfinityScrollControl: React.FC<TInfinityScrollControl> = ({
+export const InfinityScrollControl = ({
   loadingMessage = 'loading',
   dataEndMessage = 'end list',
-}) => {
+}: TInfinityScrollControl) => {
   const { isLoading, hasMoreUserToLoad, elementRef } = useInfinityScroll()
 
   return (
