@@ -7,8 +7,8 @@
     "start": "vite",
     "build": "tsc && vite build",
     "serve": "vite preview",
-    "lint": "eslint src/**/*.ts",
-    "format": "eslint src/**/*.ts --fix",
+    "lint": "eslint \"**/*.{ts,tsx}\"",
+    "format": "eslint \"**/*.{ts,tsx}\" --fix",
     "test": "jest",
     "test:watch": "jest --watchAll --coverage",
     "test:ci": "jest --coverage"

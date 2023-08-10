@@ -1,6 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import react from '@vitejs/plugin-react'
 import { resolve } from 'path'
+import react from '@vitejs/plugin-react'
 import { defineConfig, Plugin } from 'vite'
 import checker from 'vite-plugin-checker'
 import handlebars from 'vite-plugin-handlebars'
@@ -22,7 +22,7 @@ export default defineConfig({
     svgrPlugin(),
     handlebars({
       partialDirectory: resolve(__dirname, 'src/partials'),
-    }) as Plugin,
+    }) as unknown as Plugin,
   ],
   server: {
     port: 3000,
