@@ -53,3 +53,5 @@ export const CardUserContainer = styled.div<TCardPicture>`
     background-color: var(--bg-color-hover);
   }
 `
+
+CardUserContainer.displayName = 'CardUserContainer'
