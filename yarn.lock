@@ -1782,9 +1782,9 @@
     "@nextui-org/shared-utils" "2.0.2"
 
 "@nextui-org/react@^2.0.14":
-  version "2.0.14"
-  resolved "https://registry.yarnpkg.com/@nextui-org/react/-/react-2.0.14.tgz#e75b47a74cbacf4686950f178a3c018cf863ea70"
-  integrity sha512-nfIdRL3zn4WhGIRKb3NBH1dQ0UNIoaSPG7zmROxcRH3VN5Em2NoCtjkRn0PcOND17ipYw982TL/0PMsME5Q0mA==
+  version "2.0.15"
+  resolved "https://registry.yarnpkg.com/@nextui-org/react/-/react-2.0.15.tgz#4c51196a8d991b04a171f7dd0ceab3c5998f33a4"
+  integrity sha512-SxyZyyJcRv01ItVauqUZA1KcIgUjm04MJ0uhuIyZ2dBkSW5AKaxMzMGn/6tpnryMO3GySzGEpqM+kKg/Xy9PkA==
   dependencies:
     "@nextui-org/accordion" "2.0.9"
     "@nextui-org/avatar" "2.0.9"
@@ -1812,7 +1812,7 @@
     "@nextui-org/spinner" "2.0.7"
     "@nextui-org/switch" "2.0.9"
     "@nextui-org/system" "2.0.5"
-    "@nextui-org/table" "2.0.9"
+    "@nextui-org/table" "2.0.10"
     "@nextui-org/tabs" "2.0.9"
     "@nextui-org/theme" "2.0.4"
     "@nextui-org/tooltip" "2.0.10"
@@ -1919,10 +1919,10 @@
     "@react-aria/i18n" "^3.8.1"
     "@react-aria/overlays" "^3.16.0"
 
-"@nextui-org/table@2.0.9":
-  version "2.0.9"
-  resolved "https://registry.yarnpkg.com/@nextui-org/table/-/table-2.0.9.tgz#cba8408fdf4ef1106db3ac03a985aacb565ba711"
-  integrity sha512-DESTeXluqe+46QL9sqpTrHAbYZ1tiH5iLa+35D3CWIbmNjRaLGJKYxHinbZb0hHj6kpBMVJ2le1a88VuFtRnLg==
+"@nextui-org/table@2.0.10":
+  version "2.0.10"
+  resolved "https://registry.yarnpkg.com/@nextui-org/table/-/table-2.0.10.tgz#31c6a5e78ae3e5a9c2594121123ea7f2d67c281d"
+  integrity sha512-ijLxXqF+2n7UHRRlZudqgrvptQkUzJFjYagv37t6QkCsLLjaxLi5UHWSnARyZyC3FYEyw4zd0r5Ui9djO7UpRQ==
   dependencies:
     "@nextui-org/checkbox" "2.0.9"
     "@nextui-org/react-utils" "2.0.5"
@@ -1937,6 +1937,7 @@
     "@react-aria/utils" "^3.19.0"
     "@react-aria/visually-hidden" "^3.8.3"
     "@react-stately/table" "^3.11.0"
+    "@react-stately/virtualizer" "^3.6.0"
     "@react-types/grid" "^3.2.0"
     "@react-types/table" "^3.8.0"
 
@@ -2638,7 +2639,7 @@
   dependencies:
     "@swc/helpers" "^0.5.0"
 
-"@react-stately/virtualizer@^3.6.1":
+"@react-stately/virtualizer@^3.6.0", "@react-stately/virtualizer@^3.6.1":
   version "3.6.1"
   resolved "https://registry.yarnpkg.com/@react-stately/virtualizer/-/virtualizer-3.6.1.tgz#3917549b87c1157d56496e2e9469229607cb2b34"
   integrity sha512-Gq5gQ1YPgTakPCkWnmp9P6p5uGoVS+phm6Ie34lmZQ+E62lrkHK0XG0bkOuvMSdWwzql0oLg03E/SMOahI9vNA==
