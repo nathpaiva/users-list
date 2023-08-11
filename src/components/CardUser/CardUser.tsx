@@ -20,7 +20,7 @@ export type TCardUserCompound = {
   children: ReactElement[] | ReactElement
   userData: TUserData
   cardStyle?: 'short' | 'full'
-  userSelected?: boolean
+  $userSelected?: boolean
   className?: string
   tabIndex?: number
   role?: string
@@ -32,7 +32,7 @@ export const CardUser = ({
   userData,
   children,
   cardStyle,
-  userSelected = false,
+  $userSelected = false,
   className,
   tabIndex,
   role,
@@ -103,7 +103,7 @@ export const CardUser = ({
   return (
     <CardUserContext.Provider value={providerProps}>
       <CardUserContainer
-        userSelected={userSelected}
+        $userSelected={$userSelected}
         className={className}
         tabIndex={tabIndex}
         role={role}

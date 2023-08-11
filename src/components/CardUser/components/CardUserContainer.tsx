@@ -1,19 +1,18 @@
 import { ButtonHTMLAttributes, KeyboardEvent, useContext } from 'react'
 
-import { css } from '@emotion/react'
-import styled from '@emotion/styled'
+import styled, { css } from 'styled-components'
 
 import { CardUserContext } from './CardUserContext'
 
 type TCardPicture = ButtonHTMLAttributes<HTMLButtonElement> & {
-  userSelected?: boolean
+  $userSelected?: boolean
   role?: string
   onKeyDown?: (event: KeyboardEvent<Element>) => void
   onClick?: () => void
 }
 
 export const CardUserContainer = styled.div<TCardPicture>`
-  ${({ userSelected, role }) => {
+  ${({ $userSelected, role }) => {
     const { cardStyle } = useContext(CardUserContext)
 
     return css`
@@ -27,7 +26,7 @@ export const CardUserContainer = styled.div<TCardPicture>`
       --pd-top: ${cardStyle === 'short' ? '20px' : '10px'};
       --flex-dir: ${cardStyle === 'short' ? 'row' : 'column'};
 
-      --bg-color: ${userSelected
+      --bg-color: ${$userSelected
         ? 'var(--color-highlight)'
         : 'var(--bg-color-style)'};
       --bg-color-hover: ${cardStyle === 'short'

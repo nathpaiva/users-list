@@ -16,7 +16,7 @@ describe('<CardUserContainer />', () => {
 
   it('should render CardUserContainer as short variant and selected', () => {
     render(
-      <CardUser userData={userDataMock} cardStyle="short" userSelected>
+      <CardUser userData={userDataMock} cardStyle="short" $userSelected>
         <CardUserContainer role="button">
           {userDataMock.name.first}
         </CardUserContainer>

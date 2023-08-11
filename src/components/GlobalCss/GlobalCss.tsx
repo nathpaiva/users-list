@@ -1,4 +1,4 @@
-import { Global, css } from '@emotion/react'
+import { css, createGlobalStyle } from 'styled-components'
 
 import { animations } from './animations'
 import { variables } from './cssVariables'
@@ -10,4 +10,6 @@ const combineCss = css`
   ${variables}
 `
 
-export const GlobalCss = () => <Global styles={combineCss} />
+export const GlobalCss = createGlobalStyle`
+  ${combineCss}
+`
