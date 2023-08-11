@@ -12,7 +12,7 @@
     "serve": "vite preview",
     "lint": "eslint \"**/*.{ts,tsx}\"",
     "format": "eslint \"**/*.{ts,tsx}\" --fix",
-    "test": "vitest",
+    "test": "vitest --",
     "test:coverage": "vitest --coverage",
     "test:ci": "vitest --coverage --run"
   },
