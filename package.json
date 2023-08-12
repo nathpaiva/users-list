@@ -1,5 +1,5 @@
 {
-  "name": "render-user-list",
+  "name": "users-list",
   "version": "1.0.0",
   "private": true,
   "type": "module",
@@ -12,8 +12,10 @@
     "serve": "vite preview",
     "lint": "eslint \"**/*.{ts,tsx}\"",
     "format": "eslint \"**/*.{ts,tsx}\" --fix",
-    "test": "vitest --",
+    "test": "vitest --run",
+    "test:watch": "vitest",
     "test:coverage": "vitest --coverage",
+    "test:ui": "vitest --ui --watch --coverage",
     "test:ci": "vitest --coverage --run"
   },
   "browserslist": [
@@ -23,16 +25,14 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^14.0.0",
     "@testing-library/user-event": "^14.4.3",
-    "@types/jest": "^29.5.3",
-    "@types/node": "^20.4.10",
     "@typescript-eslint/eslint-plugin": "^6.3.0",
     "@typescript-eslint/parser": "^6.3.0",
     "@vitejs/plugin-react": "^4.0.4",
     "@vitest/coverage-v8": "^0.34.1",
+    "@vitest/ui": "0.34.0",
     "autoprefixer": "^10.4.14",
     "eslint": "^8.47.0",
     "eslint-config-airbnb": "^19.0.4",
@@ -54,7 +54,7 @@
     "vite-plugin-checker": "^0.6.1",
     "vite-plugin-svgr": "^3.2.0",
     "vite-tsconfig-paths": "^4.2.0",
-    "vitest": "^0.34.1"
+    "vitest": "0.33.0"
   },
   "dependencies": {
     "@nextui-org/react": "^2.0.14",

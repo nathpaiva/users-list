@@ -87,6 +87,7 @@ export const CardUser = ({
     return childByScope.fullProfile.push(
       cloneElement(child, {
         className,
+        key: child.key,
         ...child.props,
       }),
     )
