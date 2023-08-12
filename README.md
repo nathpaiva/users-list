@@ -31,8 +31,6 @@ This project creates a users list consuming the [Random user API](https://random
 │ ├── FullProfile
 │ ├── Main.tsx
 │ └── UserList
-├── react-app-env.d.ts
-├── setupTests.ts
 └── type.d.ts
 ```
 
