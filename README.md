@@ -8,30 +8,86 @@ This project creates a users list consuming the [Random user API](https://random
 ## Project Architecture
 
 ```bash
-.
+src/
 ├── components
-│ ├── CardUser
-│ ├── GlobalCss
-│ ├── Header
-│ ├── InfinityScroll
-│ ├── Loader
-│ ├── TabPanel
-│ ├── TabProvider
-│ ├── UserProvider
-│ └── index.ts
+│   ├── CardUser
+│   │   ├── CardUser.tsx
+│   │   ├── __tests__
+│   │   │   ├── CardUser.test.tsx
+│   │   │   └── mock.ts
+│   │   ├── components
+│   │   │   ├── CardDescription.tsx
+│   │   │   ├── CardDetail.tsx
+│   │   │   ├── CardImage.tsx
+│   │   │   ├── CardUserContainer.tsx
+│   │   │   ├── CardUserContext.tsx
+│   │   │   ├── __tests__
+│   │   │   │   ├── CardDescription.test.tsx
+│   │   │   │   ├── CardDetail.test.tsx
+│   │   │   │   ├── CardImage.test.tsx
+│   │   │   │   ├── CardUserContainer.test.tsx
+│   │   │   │   └── CardUserContext.test.tsx
+│   │   │   └── index.ts
+│   │   ├── index.ts
+│   │   └── type.d.ts
+│   ├── GlobalCss
+│   │   ├── GlobalCss.tsx
+│   │   ├── animations.ts
+│   │   ├── cardAnimation.ts
+│   │   ├── cssVariables.ts
+│   │   ├── index.ts
+│   │   └── resetCss.ts
+│   ├── GlobalErrorMessage
+│   │   ├── GlobalErrorMessage.tsx
+│   │   └── index.ts
+│   ├── GlobalLoader
+│   │   ├── GlobalLoader.tsx
+│   │   └── index.ts
+│   ├── Header
+│   │   ├── Header.tsx
+│   │   └── index.ts
+│   ├── InfinityScroll
+│   │   ├── InfinityScrollContext.ts
+│   │   ├── InfinityScrollControl.tsx
+│   │   ├── InfinityScrollProvider.tsx
+│   │   ├── index.ts
+│   │   ├── reduceInfinity.ts
+│   │   ├── type.d.ts
+│   │   └── useInfinityScroll.tsx
+│   ├── Loader
+│   │   ├── Loader.tsx
+│   │   ├── __tests__
+│   │   │   └── Loader.test.tsx
+│   │   └── index.ts
+│   ├── TabPanel
+│   │   ├── TabPanel.tsx
+│   │   └── index.ts
+│   ├── TabProvider
+│   │   ├── TabProvider.tsx
+│   │   └── index.ts
+│   ├── UserProvider
+│   │   ├── UserProvider.tsx
+│   │   └── index.ts
+│   └── index.ts
 ├── constants
-│ └── index.ts
+│   └── index.ts
 ├── helpers
-│ └── index.ts
+│   └── index.ts
 ├── hooks
-│ ├── index.ts
-│ └── useFetchApi.ts
+│   ├── index.ts
+│   └── useFetchApi.ts
 ├── index.tsx
+├── input.css
 ├── pages
-│ ├── FullProfile
-│ ├── Main.tsx
-│ └── UserList
-└── type.d.ts
+│   ├── FullProfile
+│   │   ├── FullProfile.tsx
+│   │   └── index.ts
+│   ├── Main.tsx
+│   └── UserList
+│       ├── UsersList.tsx
+│       └── index.ts
+├── type.d.ts
+└── vite-env.d.ts
 ```
 
 The project is spited by:
