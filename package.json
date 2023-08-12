@@ -1,5 +1,5 @@
 {
-  "name": "users-list",
+  "name": "render-users-list",
   "version": "1.0.0",
   "private": true,
   "type": "module",
@@ -12,7 +12,7 @@
     "serve": "vite preview",
     "lint": "eslint \"**/*.{ts,tsx}\"",
     "format": "eslint \"**/*.{ts,tsx}\" --fix",
-    "test": "vitest",
+    "test": "vitest --run",
     "test:coverage": "vitest --coverage",
     "test:ci": "vitest --coverage --run"
   },
@@ -23,11 +23,9 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^14.0.0",
     "@testing-library/user-event": "^14.4.3",
-    "@types/node": "^20.4.10",
     "@typescript-eslint/eslint-plugin": "^6.3.0",
     "@typescript-eslint/parser": "^6.3.0",
     "@vitejs/plugin-react": "^4.0.4",
