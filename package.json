@@ -1,5 +1,5 @@
 {
-  "name": "render-users-list",
+  "name": "users-list",
   "version": "1.0.0",
   "private": true,
   "type": "module",
