@@ -12,6 +12,8 @@ import { useFetch } from '../hooks'
 import { FullProfile } from './FullProfile'
 import { UserList } from './UserList'
 
+import '../input.css'
+
 export function Main() {
   const { userData, isLoading, errorMessage } = useFetch()
 
@@ -28,13 +30,14 @@ export function Main() {
   return (
     <>
       <GlobalCss />
+
       {/* responsible to manager the Tab state */}
       <TabProvider>
         {/* responsible to manager the current user */}
         <UserProvider>
           <Header />
 
-          <TabPanel index={0}>
+          <TabPanel index="$.0">
             {/* responsible to return the list user data */}
             <InfinityScrollProvider
               userData={userData.results}
@@ -45,7 +48,7 @@ export function Main() {
             </InfinityScrollProvider>
           </TabPanel>
 
-          <TabPanel layout="grid:2" index={1} tabIndex={0}>
+          <TabPanel $layout="grid:2" index="$.1" tabIndex={0}>
             <FullProfile />
           </TabPanel>
         </UserProvider>

@@ -3,8 +3,8 @@ import { render } from '@testing-library/react'
 import { CardUserContext } from '../CardUserContext'
 import { userDataMock } from '../../__tests__/mock'
 
-describe('<CardUserContainer />', () => {
-  it('should render CardUserContainer', () => {
+describe('<CardUserContext />', () => {
+  it('should render CardUserContext', () => {
     const { getByText } = render(
       <CardUserContext.Provider
         value={{

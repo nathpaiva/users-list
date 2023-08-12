@@ -23,7 +23,7 @@ export const UserList = () => {
             key={userData.login.uuid}
             userData={userData}
             cardStyle="short"
-            userSelected={isCurrentUser}
+            $userSelected={isCurrentUser}
             tabIndex={0}
             aria-pressed={isCurrentUser}
             role="button"
@@ -31,11 +31,11 @@ export const UserList = () => {
               if (event.key !== 'Enter') return
 
               setCurrentUser(userData)
-              setCurrentTab(1)
+              setCurrentTab('$.1')
             }}
             onClick={() => {
               setCurrentUser(userData)
-              setCurrentTab(1)
+              setCurrentTab('$.1')
             }}
             className="cardUser-animate"
           >

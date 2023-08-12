@@ -20,5 +20,6 @@
       "directory": "./src",
       "changeProcessCWD": true
     }
-  ]
+  ],
+  "vitest.commandLine": "yarn test --"
 }

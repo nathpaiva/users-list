@@ -11,12 +11,12 @@ import {
 import { noop } from '../../helpers'
 
 type TCTabContext = {
-  currentTab: number
-  setCurrentTab: Dispatch<SetStateAction<number>>
+  currentTab: React.Key
+  setCurrentTab: Dispatch<SetStateAction<React.Key>>
 }
 
 const CTabContext = createContext<TCTabContext>({
-  currentTab: 0,
+  currentTab: '$.0',
   setCurrentTab: noop,
 })
 
@@ -25,7 +25,8 @@ type TTabContext = {
 }
 
 export const TabProvider = ({ children }: TTabContext) => {
-  const [currentTab, setCurrentTab] = useState<TCTabContext['currentTab']>(0)
+  const [currentTab, setCurrentTab] =
+    useState<TCTabContext['currentTab']>('$.0')
   const context = useMemo(() => {
     return { currentTab, setCurrentTab }
   }, [currentTab, setCurrentTab])

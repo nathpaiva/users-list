@@ -1,4 +1,4 @@
-import { css, keyframes } from '@emotion/react'
+import { css, keyframes } from 'styled-components'
 
 const cardEntrance = keyframes`
   from {

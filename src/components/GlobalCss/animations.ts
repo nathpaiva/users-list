@@ -1,5 +1,4 @@
-import { css } from '@emotion/react'
-
+import { css } from 'styled-components'
 import { animateCards, animateFullProfile } from './cardAnimation'
 
 export const animations = css`
