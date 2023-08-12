@@ -18,7 +18,7 @@ export default defineConfig({
     setupFiles: ['./vitest.setup.ts'],
     coverage: {
       include: ['src/**/*'],
-      reporter: ['default', 'html'],
+      reporter: ['text', 'json', 'html'],
       exclude: [
         'src/**/index.ts',
         'src/**/index.tsx',
