@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import {
   type KeyboardEvent,
   type ReactElement,
@@ -7,7 +6,6 @@ import {
   cloneElement,
   useMemo,
 } from 'react'
-
 import {
   CardDescription,
   CardDetail,
